@@ -28,7 +28,7 @@ import { CartComponent } from './pages/cart/cart.component';
 import { CartService } from './services/cart.service';
 import { HttpClientModule } from '@angular/common/http';
 import { StoreService } from './services/store.service';
-import { FooterComponent } from './components/footer/footer.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +39,7 @@ import { FooterComponent } from './components/footer/footer.component';
     FiltersComponent,
     HeaderComponent,
     CartComponent,
-    FooterComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

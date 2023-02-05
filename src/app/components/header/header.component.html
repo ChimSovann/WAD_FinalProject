@@ -2,20 +2,17 @@
 
     <body>
         <nav class="bg-white shadow">
-            <div class="container mx-auto px-6 py-3 md:flex md:justify-between md:items-center">
+            <div class="container mx-auto px-6 py-3 md:flex md:justify-between md:items-center ml-5">
                 <div class="flex justify-between items-center">
-                    <div>
-                        <a class="text-gray-800 text-xl font-bold md:text-2xl hover:text-gray-700" href="#">VIVA.</a
-            >
-          </div>
 
-          <!-- Mobile menu button -->
-          <div class="flex md:hidden">
-            <button
-              type="button"
-              class="text-gray-500 hover:text-gray-600 focus:outline-none focus:text-gray-600"
-              aria-label="toggle menu"
-            >
+                    <div>
+                        <img class=" h-12 w-20 " src="/assets/logo.png" alt="">
+
+                    </div>
+
+                    <!-- Mobile menu button -->
+                    <div class="flex md:hidden">
+                        <button type="button" class="text-gray-500 hover:text-gray-600 focus:outline-none focus:text-gray-600" aria-label="toggle menu">
               <svg viewBox="0 0 24 24" class="h-6 w-6 fill-current">
                 <path
                   fill-rule="evenodd"
@@ -23,35 +20,32 @@
                 ></path>
               </svg>
             </button>
-          </div>
-        </div>
+                    </div>
+                </div>
 
-        <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
-        <div class="md:flex items-center">
-          <div class="flex flex-col md:flex-row md:mx-6">
-            <a
-              class="my-1 text-sm text-gray-700 font-medium hover:text-indigo-500 md:mx-4 md:my-0"
-              href="/home"
-              >Home</a
+                <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
+                <div class="md:flex items-center ">
+                    <div class="flex flex-col md:flex-row md:mx-6">
+                        <a class="my-1  text-gray-700 font-medium text-xl hover:text-indigo-500 md:mx-4 md:my-0" href="/home">Home</a
             >
             <a
-              class="my-1 text-sm text-gray-700 font-medium hover:text-indigo-500 md:mx-4 md:my-0"
+              class="my-1 text-xl text-gray-700 font-medium hover:text-indigo-500 md:mx-4 md:my-0"
               href="/home"
               >Shop</a
             >
             <a
-              class="my-1 text-sm text-gray-700 font-medium hover:text-indigo-500 md:mx-4 md:my-0"
+              class="my-1 text-xl text-gray-700 font-medium hover:text-indigo-500 md:mx-4 md:my-0"
               href="/home"
               >Contact</a
             >
             <a
-              class="my-1 text-sm text-gray-700 font-medium hover:text-indigo-500 md:mx-4 md:my-0"
+              class="my-1 text-xl text-gray-700 font-medium hover:text-indigo-500 md:mx-4 md:my-0"
               href="/home"
               >About</a
             >
           </div>
-          <div >
-            <mat-toolbar class="bg-white" >
+          <div>
+            <mat-toolbar class="bg-white">
               <!-- class="justify-between bg-blue-500 max-w-7xl mx-auto border-x shadow-xl" -->
               <!-- <a routerLink="home " class="text-white">VIVA.</a> -->
                         <button mat-icon-button [matMenuTriggerFor]="menu">
@@ -59,9 +53,11 @@
                   [matBadge]="itemsQuantity"
                   [matBadgeHidden]="!itemsQuantity"
                   matBadgeColor="warn"
+                  routerLink="/cart"
                   >shopping_cart
                 </mat-icon>
               </button>
+                        <!-- <a (click)="logOut()" class="nav-link" style="color: white">Log Out</a> -->
                         <mat-menu #menu="matMenu">
                             <div class="p-3 divide-y divide-solid">
                                 <div class="pb-3 flex justify-between">
@@ -102,7 +98,6 @@
                 </div>
             </div>
         </nav>
-
-
     </body>
+    <router-outlet></router-outlet>
 </header>

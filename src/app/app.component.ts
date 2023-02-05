@@ -3,6 +3,7 @@ import { Cart, CartItem } from './models/cart.model';
 import { CartService } from './services/cart.service';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -12,6 +13,8 @@ import { Router } from '@angular/router';
 export class AppComponent implements OnInit {
   cart: Cart = { items: [] };
   router: any;
+  
+  
 
   constructor(private cartService: CartService, router: Router) {}
 
@@ -24,4 +27,7 @@ export class AppComponent implements OnInit {
       this.cart = _cart;
     });
   }
+
+
+  
 }

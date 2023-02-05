@@ -1,39 +1,103 @@
-<mat-toolbar class="justify-between bg-white max-w-7xl mx-auto border-x">
-    <a routerLink="home " class="text-black">VIVA.</a>
-    <button mat-icon-button [matMenuTriggerFor]="menu">
-    <mat-icon
-      [matBadge]="itemsQuantity"
-      [matBadgeHidden]="!itemsQuantity"
-      matBadgeColor="warn"
-      >shopping_cart
-    </mat-icon>
-  </button>
-    <mat-menu #menu="matMenu">
-        <div class="p-3 divide-y divide-solid">
-            <div class="pb-3 flex justify-between">
-                <span class="mr-16">{{ cart.items.length }} items</span>
-                <a routerLink="cart">View Cart</a>
-            </div>
-            <div *ngIf="cart.items.length" class="py-3">
-                <div *ngFor="let item of cart.items" class="flex justify-between font-light mb-2">
-                    {{ item.name }} x {{ item.quantity }}
-                    <span class="font-bold not-italic">{{ item.price | currency }}</span>
+<header>
+
+    <body>
+        <nav class="bg-white shadow">
+            <div class="container mx-auto px-6 py-3 md:flex md:justify-between md:items-center ml-5">
+                <div class="flex justify-between items-center">
+
+                    <div>
+                        <img class=" h-12 w-20 " src="/assets/logo.png" alt="">
+
+                    </div>
+
+                    <!-- Mobile menu button -->
+                    <div class="flex md:hidden">
+                        <button type="button" class="text-gray-500 hover:text-gray-600 focus:outline-none focus:text-gray-600" aria-label="toggle menu">
+              <svg viewBox="0 0 24 24" class="h-6 w-6 fill-current">
+                <path
+                  fill-rule="evenodd"
+                  d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"
+                ></path>
+              </svg>
+            </button>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
+                <div class="md:flex items-center ">
+                    <div class="flex flex-col md:flex-row md:mx-6">
+                        <a class="my-1  text-gray-700 font-medium text-xl hover:text-indigo-500 md:mx-4 md:my-0" href="/home">Home</a
+            >
+            <a
+              class="my-1 text-xl text-gray-700 font-medium hover:text-indigo-500 md:mx-4 md:my-0"
+              href="/home"
+              >Shop</a
+            >
+            <a
+              class="my-1 text-xl text-gray-700 font-medium hover:text-indigo-500 md:mx-4 md:my-0"
+              href="/home"
+              >Contact</a
+            >
+            <a
+              class="my-1 text-xl text-gray-700 font-medium hover:text-indigo-500 md:mx-4 md:my-0"
+              href="/home"
+              >About</a
+            >
+          </div>
+          <div>
+            <mat-toolbar class="bg-white">
+              <!-- class="justify-between bg-blue-500 max-w-7xl mx-auto border-x shadow-xl" -->
+              <!-- <a routerLink="home " class="text-white">VIVA.</a> -->
+                        <button mat-icon-button [matMenuTriggerFor]="menu">
+                <mat-icon
+                  [matBadge]="itemsQuantity"
+                  [matBadgeHidden]="!itemsQuantity"
+                  matBadgeColor="warn"
+                  routerLink="/cart"
+                  >shopping_cart
+                </mat-icon>
+              </button>
+                        <!-- <a (click)="logOut()" class="nav-link" style="color: white">Log Out</a> -->
+                        <mat-menu #menu="matMenu">
+                            <div class="p-3 divide-y divide-solid">
+                                <div class="pb-3 flex justify-between">
+                                    <span class="mr-16">{{ cart.items.length }} items</span>
+                                    <a routerLink="cart">View Cart</a>
+                                </div>
+                                <div *ngIf="cart.items.length" class="py-3">
+                                    <div *ngFor="let item of cart.items" class="flex justify-between font-light mb-2">
+                                        {{ item.name }} x {{ item.quantity }}
+                                        <span class="font-bold not-italic">{{
+                        item.price | currency
+                      }}</span>
+                                    </div>
+                                </div>
+                                <div class="flex justify-between py-3 font-light">
+                                    Total:
+                                    <span class="font-bold not-italic">{{
+                      getTotal(cart.items) | currency
+                    }}</span>
+                                </div>
+                                <div class="pt-3 flex justify-between">
+                                    <button (click)="onClearCart()" class="bg-rose-600 text-white rounded-full w-9 h-9">
+                      <mat-icon>remove_shopping_cart</mat-icon>
+                    </button>
+                                    <button routerLink="cart" class="bg-green-600 text-white rounded-full w-9 h-9">
+                      <mat-icon>shopping_cart_checkout</mat-icon>
+                    </button>
+                                </div>
+                            </div>
+                        </mat-menu>
+                        </mat-toolbar>
+                    </div>
+                    <!-- cart -->
+
+                    <!-- <div class="flex justify-center md:block">
+                        <a class="relative text-gray-700 hover:text-gray-600" href="/home"></a>
+                    </div> -->
                 </div>
             </div>
-            <div class="flex justify-between py-3 font-light">
-                Total:
-                <span class="font-bold not-italic">{{
-          getTotal(cart.items) | currency
-        }}</span>
-            </div>
-            <div class="pt-3 flex justify-between">
-                <button (click)="onClearCart()" class="bg-rose-600 text-white rounded-full w-9 h-9">
-          <mat-icon>remove_shopping_cart</mat-icon>
-        </button>
-                <button routerLink="cart" class="bg-green-600 text-white rounded-full w-9 h-9">
-          <mat-icon>shopping_cart_checkout</mat-icon>
-        </button>
-            </div>
-        </div>
-    </mat-menu>
-</mat-toolbar>
+        </nav>
+    </body>
+    <router-outlet></router-outlet>
+</header>

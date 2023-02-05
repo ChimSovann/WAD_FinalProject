@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Cart, CartItem } from 'src/app/models/cart.model';
 import { CartService } from 'src/app/services/cart.service';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -9,6 +9,7 @@ import { CartService } from 'src/app/services/cart.service';
 export class HeaderComponent {
   private _cart: Cart = { items: [] };
   itemsQuantity = 0;
+  router: any;
 
   @Input()
   get cart(): Cart {
@@ -23,12 +24,16 @@ export class HeaderComponent {
       .reduce((prev, curent) => prev + curent, 0);
   }
 
-  constructor(private cartService: CartService) {}
+  constructor(private cartService: CartService,router: Router) {}
 
   getTotal(items: CartItem[]): number {
     return this.cartService.getTotal(items);
   }
+  
 
+  goToLoginPage() {
+    this.router.navigate(['/login']);
+  }
   onClearCart(): void {
     this.cartService.clearCart();
   }

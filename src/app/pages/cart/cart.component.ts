@@ -57,7 +57,7 @@ export class CartComponent implements OnInit, OnDestroy {
         items: this.cart.items,
       })
       .subscribe(async (res: any) => {
-        let stripe = await loadStripe('your token');
+        let stripe = await loadStripe('pk_test_51MXnIwDCEUudJtg7KaEGJcUyBwpSbpalqTZeLzTYFN68K7St3ICeQMSpAzFlOuZkIy2m6wn8AczNXWxwApcza08t00IbeAqrw9');
         stripe?.redirectToCheckout({
           sessionId: res.id,
         });

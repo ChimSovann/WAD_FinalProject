@@ -20,9 +20,13 @@
     "@angular/platform-browser": "^14.2.0",
     "@angular/platform-browser-dynamic": "^14.2.0",
     "@angular/router": "^14.2.0",
-    "@stripe/stripe-js": "^1.35.0",
+    "@auth0/angular-jwt": "^5.1.2",
+    "@stripe/stripe-js": "^1.46.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "jwt-decode": "^3.1.2",
     "rxjs": "~7.5.0",
-    "stripe": "^10.7.0",
+    "stripe": "^11.9.1",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },
@@ -43,5 +47,18 @@
     "postcss-import": "^14.1.0",
     "tailwindcss": "^3.1.8",
     "typescript": "~4.8.2"
-  }
+  },
+  "description": "<<<<<<< HEAD\r # WAD_FinalProject\r =======\r # EcommerceStore",
+  "main": "karma.conf.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChimSovann/WAD_FinalProject.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ChimSovann/WAD_FinalProject/issues"
+  },
+  "homepage": "https://github.com/ChimSovann/WAD_FinalProject#readme"
 }
